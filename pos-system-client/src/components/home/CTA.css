@@ -1,0 +1,16 @@
+.cta{
+padding:120px 20px;
+background:linear-gradient(135deg,#0f766e,#22c55e);
+text-align:center;
+color:white;
+}
+
+.cta h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.cta p{
+font-size:20px;
+margin-bottom:40px;
+}
