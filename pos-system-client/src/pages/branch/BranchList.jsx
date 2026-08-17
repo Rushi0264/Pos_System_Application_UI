@@ -16,6 +16,14 @@ const canManage = user.role !== "ROLE_SUPER_ADMIN";
 const BranchList = () => {
   const navigate = useNavigate();
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const [branches, setBranches] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
@@ -74,14 +82,24 @@ const BranchList = () => {
     <MainLayout>
       <Card
         title="Branch Management"
+        style={
+          isMobile
+            ? { margin: "0 -12px", borderRadius: 0 }
+            : {}
+        }
+        styles={{
+          body: isMobile ? { padding: "12px 8px" } : {},
+          header: isMobile ? { padding: "0 12px" } : {},
+        }}
         extra={
           canManage && (
             <Button
               type="primary"
+              size={isMobile ? "small" : "middle"}
               icon={<PlusOutlined />}
               onClick={() => navigate("/branches/create")}
             >
-              Add Branch
+              {isMobile ? "Add" : "Add Branch"}
             </Button>
           )
         }

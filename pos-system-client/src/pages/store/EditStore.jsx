@@ -55,14 +55,18 @@ const EditStore = () => {
   if (loading && !store) {
     return (
       <MainLayout>
-        <Spin size="large" />
+        <div style={{ textAlign: "center", marginTop: 60 }}>
+          <Spin size="large" />
+        </div>
       </MainLayout>
     );
   }
 
   return (
     <MainLayout>
-      <BackButton/>
+      <div style={{ marginBottom: 12 }}>
+        <BackButton />
+      </div>
       <StoreForm
         initialValues={store}
         onSubmit={handleUpdate}

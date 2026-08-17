@@ -21,6 +21,13 @@ const StoreDetails = () => {
 
   const [store, setStore] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const currentUser = storage.getUser();
   const isSuperAdmin = currentUser?.role === "ROLE_SUPER_ADMIN";
@@ -62,8 +69,24 @@ const StoreDetails = () => {
 
   return (
     <MainLayout>
-      <Card title="Store Details">
-        <Descriptions bordered column={1}>
+      <Card
+        title="Store Details"
+        style={
+          isMobile
+            ? { margin: "0 -12px", borderRadius: 0 }
+            : {}
+        }
+        styles={{
+          body: isMobile ? { padding: "12px 8px" } : {},
+          header: isMobile ? { padding: "0 12px" } : {},
+        }}
+      >
+        <Descriptions
+          bordered
+          column={1}
+          layout={isMobile ? "vertical" : "horizontal"}
+          size={isMobile ? "small" : "default"}
+        >
           <Descriptions.Item label="Store ID">
             {store.id}
           </Descriptions.Item>
@@ -107,11 +130,16 @@ const StoreDetails = () => {
           </Descriptions.Item>
         </Descriptions>
 
-        <Space wrap style={{ marginTop: 24 }}>
+        <Space
+          direction={isMobile ? "vertical" : "horizontal"}
+          wrap
+          style={{ marginTop: 24, width: isMobile ? "100%" : "auto" }}
+        >
           {!isSuperAdmin && (
             <>
               <Button
                 type="primary"
+                block={isMobile}
                 onClick={() =>
                   navigate(`/stores/${store.id}/branches`)
                 }
@@ -120,18 +148,21 @@ const StoreDetails = () => {
               </Button>
 
               <Button
+                block={isMobile}
                 onClick={() => navigate("/employees")}
               >
                 Manage Employees
               </Button>
 
               <Button
+                block={isMobile}
                 onClick={() => navigate("/products")}
               >
                 Manage Products
               </Button>
 
               <Button
+                block={isMobile}
                 onClick={() => navigate("/categories")}
               >
                 Manage Categories
@@ -140,6 +171,7 @@ const StoreDetails = () => {
           )}
 
           <Button
+            block={isMobile}
             onClick={() => navigate("/stores")}
           >
             Back to Stores

@@ -7,37 +7,44 @@ import MainLayout from "../../layouts/MainLayout";
 import StoreTable from "../../components/store/StoreTable";
 import storeService from "../../services/storeService";
 
-
 import StoreSearch from "../../components/store/StoreSearch";
 import DeleteStoreModal from "../../components/store/DeleteStoreModal";
 
 const StoreList = () => {
   const navigate = useNavigate();
 
-const [stores, setStores] = useState([]);
-const [loading, setLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const [stores, setStores] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("ALL");
 
-const [deleteOpen, setDeleteOpen] = useState(false);
-const [selectedId, setSelectedId] = useState(null);
+  const [deleteOpen, setDeleteOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
 
-const filteredStores = useMemo(() => {
-  return stores.filter((store) => {
-    const keyword = search.toLowerCase();
+  const filteredStores = useMemo(() => {
+    return stores.filter((store) => {
+      const keyword = search.toLowerCase();
 
-    const matchKeyword =
-      store.brand?.toLowerCase().includes(keyword) ||
-      store.storeType?.toLowerCase().includes(keyword) ||
-      store.contact?.email?.toLowerCase().includes(keyword) ||
-      store.contact?.phone?.includes(keyword);
+      const matchKeyword =
+        store.brand?.toLowerCase().includes(keyword) ||
+        store.storeType?.toLowerCase().includes(keyword) ||
+        store.contact?.email?.toLowerCase().includes(keyword) ||
+        store.contact?.phone?.includes(keyword);
 
-    const matchStatus =
-      status === "ALL" || store.status === status;
+      const matchStatus =
+        status === "ALL" || store.status === status;
 
-    return matchKeyword && matchStatus;
-  });
-}, [stores, search, status]);
+      return matchKeyword && matchStatus;
+    });
+  }, [stores, search, status]);
 
   const fetchStores = async () => {
     try {
@@ -55,9 +62,9 @@ const filteredStores = useMemo(() => {
     }
   };
 
-useEffect(() => {
-  void fetchStores();
-}, []);
+  useEffect(() => {
+    void fetchStores();
+  }, []);
 
   const handleView = (id) => {
     navigate(`/stores/${id}`);
@@ -67,51 +74,61 @@ useEffect(() => {
     navigate(`/stores/edit/${id}`);
   };
 
-const handleDelete = (id) => {
-  setSelectedId(id);
-  setDeleteOpen(true);
-};
+  const handleDelete = (id) => {
+    setSelectedId(id);
+    setDeleteOpen(true);
+  };
 
-const confirmDelete = async () => {
-  try {
-    setLoading(true);
+  const confirmDelete = async () => {
+    try {
+      setLoading(true);
 
-    await storeService.deleteStore(selectedId);
+      await storeService.deleteStore(selectedId);
 
-    message.success("Store deleted successfully.");
+      message.success("Store deleted successfully.");
 
-    await fetchStores();
-  } catch (error) {
-    message.error(
-      error.response?.data?.message || "Delete failed."
-    );
-  } finally {
-    setLoading(false);
-    setDeleteOpen(false);
-    setSelectedId(null);
-  }
-};
+      await fetchStores();
+    } catch (error) {
+      message.error(
+        error.response?.data?.message || "Delete failed."
+      );
+    } finally {
+      setLoading(false);
+      setDeleteOpen(false);
+      setSelectedId(null);
+    }
+  };
 
   return (
     <MainLayout>
       <Card
         title="Store Management"
+        style={
+          isMobile
+            ? { margin: "0 -12px", borderRadius: 0 }
+            : {}
+        }
+        styles={{
+          body: isMobile ? { padding: "12px 8px" } : {},
+          header: isMobile ? { padding: "0 12px" } : {},
+        }}
         extra={
           <Button
             type="primary"
+            size={isMobile ? "small" : "middle"}
             icon={<PlusOutlined />}
             onClick={() => navigate("/stores/create")}
           >
-            Add Store
+            {isMobile ? "Add" : "Add Store"}
           </Button>
         }
       >
         <StoreSearch
-  search={search}
-  setSearch={setSearch}
-  status={status}
-  setStatus={setStatus}
-/>
+          search={search}
+          setSearch={setSearch}
+          status={status}
+          setStatus={setStatus}
+        />
         <StoreTable
           stores={filteredStores}
           loading={loading}
@@ -119,12 +136,12 @@ const confirmDelete = async () => {
           onEdit={handleEdit}
           onDelete={handleDelete}
         />
-<DeleteStoreModal
-  open={deleteOpen}
-  loading={loading}
-  onOk={confirmDelete}
-  onCancel={() => setDeleteOpen(false)}
-/>
+        <DeleteStoreModal
+          open={deleteOpen}
+          loading={loading}
+          onOk={confirmDelete}
+          onCancel={() => setDeleteOpen(false)}
+        />
       </Card>
     </MainLayout>
   );
