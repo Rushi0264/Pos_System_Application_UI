@@ -10,7 +10,7 @@ import DeleteBranchModal from "../../components/branch/DeleteBranchModal";
 
 import branchService from "../../services/branchService";
 
-const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
 const canManage = user.role !== "ROLE_SUPER_ADMIN";
 
 const BranchList = () => {

@@ -31,7 +31,7 @@ const ProductList = () => {
 
   const user =
     JSON.parse(
-      localStorage.getItem("pos_user")
+      sessionStorage.getItem("pos_user")
     ) || {};
 
 

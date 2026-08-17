@@ -26,7 +26,7 @@ const StockTransfer = () => {
 
 const loadStores = async () => {
   try {
-    const user = JSON.parse(localStorage.getItem("pos_user"));
+    const user = JSON.parse(sessionStorage.getItem("pos_user"));
 
     let data;
     if (user.role === "ROLE_SUPER_ADMIN") {
@@ -44,7 +44,7 @@ const loadStores = async () => {
 
 useEffect(() => {
   const init = async () => {
-    const user = JSON.parse(localStorage.getItem("pos_user"));
+    const user = JSON.parse(sessionStorage.getItem("pos_user"));
     let data;
 
     if (user.role === "ROLE_SUPER_ADMIN") {

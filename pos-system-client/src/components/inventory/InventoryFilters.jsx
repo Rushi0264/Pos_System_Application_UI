@@ -60,7 +60,7 @@ export default function InventoryFilters({
 
 const loadDropdownData = async () => {
   try {
-    const user = JSON.parse(localStorage.getItem("pos_user"));
+    const user = JSON.parse(sessionStorage.getItem("pos_user"));
 
     let storeData;
     if (user.role === "ROLE_SUPER_ADMIN") {

@@ -37,7 +37,7 @@ export default function StockDrawer({
 
   const initializeDrawer = async () => {
     try {
-      const user = JSON.parse(localStorage.getItem("pos_user"));
+      const user = JSON.parse(sessionStorage.getItem("pos_user"));
 
       let storesData = [];
 

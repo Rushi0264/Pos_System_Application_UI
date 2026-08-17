@@ -17,7 +17,7 @@ const CreateEmployee = () => {
   const [branches, setBranches] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const currentUser = JSON.parse(localStorage.getItem("pos_user") || "null");
+  const currentUser = JSON.parse(sessionStorage.getItem("pos_user") || "null");
   const isStoreAdmin = currentUser?.role === "ROLE_STORE_ADMIN";
 
   useEffect(() => {

@@ -21,7 +21,7 @@ import {
   FaDollarSign,
 } from "react-icons/fa";
 
-const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
 
 const StoreAdminDashboard = () => {
   const navigate = useNavigate();

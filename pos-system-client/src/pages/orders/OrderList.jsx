@@ -31,7 +31,7 @@ const OrderList = () => {
   const [searchParams] = useSearchParams();
   const isTodayFilter = searchParams.get("filter") === "today";
 
-  const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+  const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
   const role = user.role;
   const isAccountant = role === "ROLE_ACCOUNTANT";
 

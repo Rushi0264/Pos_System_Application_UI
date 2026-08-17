@@ -26,7 +26,7 @@ const CashierDashboard = () => {
 
   const [shiftActive, setShiftActive] = useState(false);
   const [shiftLoading, setShiftLoading] = useState(false);
-  const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+  const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
   const branchName = user?.branchName || "";
   const storeBrand = user?.storeBrand || "";
 

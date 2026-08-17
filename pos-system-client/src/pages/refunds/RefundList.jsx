@@ -13,7 +13,7 @@ const RefundList = () => {
   const [refunds, setRefunds] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const currentUser = JSON.parse(localStorage.getItem("pos_user") || "null");
+  const currentUser = JSON.parse(sessionStorage.getItem("pos_user") || "null");
   const isAccountant = currentUser?.role === "ROLE_ACCOUNTANT";
 
   useEffect(() => {

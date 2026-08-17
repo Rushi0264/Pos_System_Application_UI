@@ -16,7 +16,7 @@ export default function BranchManagerDashboard() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+  const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
   const navigate = useNavigate();
 
   useEffect(() => {

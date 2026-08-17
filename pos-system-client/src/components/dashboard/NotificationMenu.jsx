@@ -17,7 +17,7 @@ import notificationService from "../../services/notificationService";
 import storeService from "../../services/storeService";
 
 const NotificationMenu = () => {
-  const user = JSON.parse(localStorage.getItem("pos_user"));
+  const user = JSON.parse(sessionStorage.getItem("pos_user"));
 
   const [notifications, setNotifications] = useState([]);
   const [loading, setLoading] = useState(false);

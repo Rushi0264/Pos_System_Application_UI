@@ -14,7 +14,7 @@ const InventoryDashboard = () => {
   const navigate = useNavigate();
   const [storeName, setStoreName] = useState("");
 
-  const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+  const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
   const [stats, setStats] = useState({
     totalStock: 0,
     lowStockCount: 0,

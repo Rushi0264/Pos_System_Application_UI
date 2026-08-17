@@ -15,7 +15,7 @@ function DashboardMockup() {
 
       <aside className="dashboard-sidebar">
 
-        <h2>Enterprise POS</h2>
+        <h2>NexoraPOS</h2>
 
         <ul>
 

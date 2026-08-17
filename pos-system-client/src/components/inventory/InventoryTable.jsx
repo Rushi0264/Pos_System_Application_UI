@@ -20,7 +20,7 @@ export default function InventoryTable({
   onDelete,
 }) {
 
-  const currentUser = JSON.parse(localStorage.getItem("pos_user"));
+  const currentUser = JSON.parse(sessionStorage.getItem("pos_user"));
   const isBranchManager = currentUser?.role === "ROLE_BRANCH_MANAGER";
 
   const columns = [

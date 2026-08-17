@@ -4,10 +4,10 @@ function Footer() {
   return (
     <footer className="footer" id="contact">
 
-      <h2>Enterprise POS</h2>
+      <h2>NexoraPOS</h2>
 
       <p>
-        © 2026 Enterprise POS System. All Rights Reserved.
+        © 2026 NexoraPOS System. All Rights Reserved.
       </p>
 
     </footer>

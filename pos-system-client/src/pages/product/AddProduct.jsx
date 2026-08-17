@@ -18,9 +18,8 @@ const AddProduct = () => {
   const [stores, setStores] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
 
-  const currentUser = JSON.parse(localStorage.getItem("pos_user") || "null");
+  const currentUser = JSON.parse(sessionStorage.getItem("pos_user") || "null");
 
-  // Store Admin आणि Inventory Manager दोघांनाही फक्त स्वतःचाच स्टोअर हवा
   const isSingleStoreUser =
     currentUser?.role === "ROLE_STORE_ADMIN" ||
     currentUser?.role === "ROLE_INVENTORY_MANAGER";

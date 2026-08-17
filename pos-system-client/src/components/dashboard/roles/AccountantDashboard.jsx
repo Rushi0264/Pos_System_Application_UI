@@ -12,7 +12,7 @@ import {
 
 const AccountantDashboard = () => {
   const navigate = useNavigate();
-const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
   const [stats, setStats] = useState({
     totalRevenue: 0,
     todayRevenue: 0,

@@ -15,7 +15,7 @@ const Settings = () => {
   const [userId, setUserId] = useState(null);
   const [storeId, setStoreId] = useState(null);
 
-  const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+  const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
   const role = user.role;
 
   useEffect(() => {

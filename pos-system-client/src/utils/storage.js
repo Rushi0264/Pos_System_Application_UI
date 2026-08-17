@@ -3,28 +3,28 @@ const USER_KEY = "pos_user";
 
 export const storage = {
   setToken: (token) => {
-    localStorage.setItem(TOKEN_KEY, token);
+    sessionStorage.setItem(TOKEN_KEY, token);
   },
 
   getToken: () => {
-    return localStorage.getItem(TOKEN_KEY);
+    return sessionStorage.getItem(TOKEN_KEY);
   },
 
   removeToken: () => {
-    localStorage.removeItem(TOKEN_KEY);
+    sessionStorage.removeItem(TOKEN_KEY);
   },
 
   setUser: (user) => {
-    localStorage.setItem(USER_KEY, JSON.stringify(user));
+    sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   },
 
   getUser: () => {
-    const user = localStorage.getItem(USER_KEY);
+    const user = sessionStorage.getItem(USER_KEY);
     return user ? JSON.parse(user) : null;
   },
 
   clear: () => {
-    localStorage.removeItem(TOKEN_KEY);
-    localStorage.removeItem(USER_KEY);
+    sessionStorage.removeItem(TOKEN_KEY);
+    sessionStorage.removeItem(USER_KEY);
   },
 };

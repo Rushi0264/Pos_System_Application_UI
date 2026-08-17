@@ -11,7 +11,7 @@ import AccountantDashboard from "../../components/dashboard/roles/AccountantDash
 
 const Dashboard = () => {
   const user =
-    JSON.parse(localStorage.getItem("pos_user")) || {};
+    JSON.parse(sessionStorage.getItem("pos_user")) || {};
 
   const role = user.role;
 

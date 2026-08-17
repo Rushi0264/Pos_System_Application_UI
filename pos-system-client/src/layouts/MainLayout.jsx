@@ -51,7 +51,7 @@ const MainLayout = ({ children }) => {
 
    
       setTimeout(() => {
-  localStorage.clear();     
+  sessionStorage.clear();     
   navigate("/login");
 }, 1500);
 

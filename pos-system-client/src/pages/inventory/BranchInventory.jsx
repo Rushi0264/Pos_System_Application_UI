@@ -11,7 +11,7 @@ const BranchInventory = () => {
   const [inventory, setInventory] = useState([]);
 
   const getLoggedInUser = () => {
-    const user = JSON.parse(localStorage.getItem("pos_user"));
+    const user = JSON.parse(sessionStorage.getItem("pos_user"));
     if (!user) {
       message.error("User not logged in");
       return null;

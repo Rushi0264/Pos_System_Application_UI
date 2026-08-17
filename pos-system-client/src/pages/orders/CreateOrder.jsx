@@ -62,7 +62,7 @@ const CreateOrder = () => {
   const getLoggedInUser = () => {
 
     const user = JSON.parse(
-      localStorage.getItem("pos_user")
+      sessionStorage.getItem("pos_user")
     );
 
     if (!user) {

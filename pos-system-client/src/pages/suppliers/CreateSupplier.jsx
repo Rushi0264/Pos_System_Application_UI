@@ -13,7 +13,7 @@ const CreateSupplier = () => {
   const [loading, setLoading] = useState(false);
   const [stores, setStores] = useState([]);
 
-  const currentUser = JSON.parse(localStorage.getItem("pos_user") || "null");
+  const currentUser = JSON.parse(sessionStorage.getItem("pos_user") || "null");
   const isSingleStoreUser =
     currentUser?.role === "ROLE_STORE_ADMIN" ||
     currentUser?.role === "ROLE_INVENTORY_MANAGER";

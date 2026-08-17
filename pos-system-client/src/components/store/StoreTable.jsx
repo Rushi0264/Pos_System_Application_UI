@@ -92,6 +92,7 @@ const StoreTable = ({
       loading={loading}
       columns={columns}
       dataSource={stores}
+      
       pagination={{
     pageSize: 10,
     showSizeChanger: true,

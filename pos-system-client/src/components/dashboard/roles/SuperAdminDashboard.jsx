@@ -26,7 +26,7 @@ import dashboardService from "../../../services/dashboardService";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
 
 const STATUS_COLORS = {
   ACTIVE: "#10b981",
@@ -192,7 +192,7 @@ const SuperAdminDashboard = () => {
   //  Approve / Reject handler
 const handleModerateStore = async (storeId, status) => {
   try {
-    const token = localStorage.getItem("pos_token");
+    const token = sessionStorage.getItem("pos_token");
 
     await axios.put(
       `http://localhost:8080/api/stores/${storeId}/moderate?status=${status}`,

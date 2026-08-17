@@ -21,7 +21,7 @@ const ShiftReportList = () => {
     try {
       setLoading(true);
 
-      const user = JSON.parse(localStorage.getItem("pos_user")) || {};
+      const user = JSON.parse(sessionStorage.getItem("pos_user")) || {};
 
 let data;
 

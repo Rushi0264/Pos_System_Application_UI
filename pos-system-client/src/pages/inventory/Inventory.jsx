@@ -72,7 +72,7 @@ const [filters, setFilters] = useState({
 const [storesList, setStoresList] = useState([]);
 
 const getLoggedInUser = () => {
-  const user = JSON.parse(localStorage.getItem("pos_user"));
+  const user = JSON.parse(sessionStorage.getItem("pos_user"));
   return user;
 };
 

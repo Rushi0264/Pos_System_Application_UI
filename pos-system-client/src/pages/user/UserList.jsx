@@ -28,7 +28,7 @@ const UserList = () => {
 
 
   const currentUser =
-    JSON.parse(localStorage.getItem("pos_user")) || {};
+    JSON.parse(sessionStorage.getItem("pos_user")) || {};
 
 
   const role = currentUser.role;

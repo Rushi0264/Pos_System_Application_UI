@@ -40,7 +40,7 @@ const Sidebar = ({ collapsed }) => {
 
 
   const user =
-    JSON.parse(localStorage.getItem("pos_user")) || {};
+    JSON.parse(sessionStorage.getItem("pos_user")) || {};
 
 
   const role = user.role;
@@ -437,7 +437,7 @@ ROLE_SUPER_ADMIN: [
 
               dispatch(logout());
 
-              localStorage.clear();
+              sessionStorage.clear();
 
               navigate("/login");
 

@@ -25,7 +25,7 @@ const CreateUser = () => {
 
   // Current Logged User
   const currentUser =
-    JSON.parse(localStorage.getItem("pos_user")) || {};
+    JSON.parse(sessionStorage.getItem("pos_user")) || {};
 
 
   const currentRole = currentUser.role;
