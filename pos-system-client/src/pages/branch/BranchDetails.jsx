@@ -10,6 +10,13 @@ const BranchDetails = () => {
   const { id } = useParams();
 
   const [branch, setBranch] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     loadBranch();
@@ -23,15 +30,35 @@ const BranchDetails = () => {
   if (!branch)
     return (
       <MainLayout>
-        <Spin />
+        <div style={{ textAlign: "center", marginTop: 60 }}>
+          <Spin size="large" />
+        </div>
       </MainLayout>
     );
 
   return (
     <MainLayout>
-      <BackButton />
-      <Card title="Branch Details">
-        <Descriptions bordered column={1}>
+      <div style={{ marginBottom: 12 }}>
+        <BackButton />
+      </div>
+      <Card
+        title="Branch Details"
+        style={
+          isMobile
+            ? { margin: "0 -12px", borderRadius: 0 }
+            : {}
+        }
+        styles={{
+          body: isMobile ? { padding: "12px 8px" } : {},
+          header: isMobile ? { padding: "0 12px" } : {},
+        }}
+      >
+        <Descriptions
+          bordered
+          column={1}
+          layout={isMobile ? "vertical" : "horizontal"}
+          size={isMobile ? "small" : "default"}
+        >
           <Descriptions.Item label="Branch">
             {branch.name}
           </Descriptions.Item>
