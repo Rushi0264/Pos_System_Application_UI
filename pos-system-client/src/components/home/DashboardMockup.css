@@ -155,3 +155,67 @@ transition:.4s;
 transform:scaleY(1.08);
 
 }
+
+/* ========== MOBILE FIX ========== */
+@media (max-width: 768px) {
+
+  .dashboard{
+    flex-direction: column;
+    border-radius: 16px;
+    max-width: 100%;
+    margin: 0 16px;
+  }
+
+  .dashboard-sidebar{
+    width: 100%;
+    padding: 20px;
+  }
+
+  .dashboard-sidebar h2{
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  .dashboard-sidebar ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .dashboard-sidebar li{
+    padding: 6px 12px;
+    font-size: 13px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+  }
+
+  .dashboard-content{
+    padding: 20px;
+  }
+
+  .top-cards{
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .top-card{
+    padding: 18px;
+  }
+
+  .top-card h1{
+    font-size: 26px;
+  }
+
+  .chart{
+    padding: 18px;
+  }
+
+  .bars{
+    height: 160px;
+  }
+
+  .bars span{
+    width: 30px;
+  }
+}

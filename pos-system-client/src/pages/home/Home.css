@@ -297,3 +297,64 @@ transform:translateY(0px);
 }
 
 }
+
+/* ========== TABLET & MOBILE ========== */
+@media (max-width: 768px) {
+
+  .navbar{
+    width: 94%;
+    padding: 12px 20px;
+    flex-wrap: wrap;
+  }
+
+  .logo{
+    font-size: 20px;
+  }
+
+  .menu{
+    display: none;
+  }
+
+  .buttons{
+    gap: 8px;
+  }
+
+  .buttons .ant-btn{
+    padding: 4px 10px;
+    font-size: 12px;
+    height: auto;
+  }
+
+  .hero{
+    padding: 110px 20px 60px;
+  }
+
+  .hero h1{
+    font-size: 34px;
+  }
+
+  .subtitle{
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .hero-buttons{
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .stats{
+    padding: 40px 20px;
+    gap: 16px;
+  }
+
+  .card{
+    width: 100%;
+    max-width: 320px;
+    padding: 25px;
+  }
+
+  .card h2{
+    font-size: 30px;
+  }
+}
