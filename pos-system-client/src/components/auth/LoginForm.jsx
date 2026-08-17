@@ -21,7 +21,7 @@ import { Link } from "react-router-dom";
 const { Title, Text } = Typography;
 
 const inputClassName =
-  "!h-[52px] !rounded-xl !border !border-gray-200 !bg-gray-50 !px-4 " +
+  "!h-[44px] sm:!h-[52px] !rounded-xl !border !border-gray-200 !bg-gray-50 !px-4 " +
   "hover:!border-green-300 focus-within:!border-green-400 " +
   "focus-within:!bg-white focus-within:!shadow-[0_0_0_4px_rgba(34,197,94,0.12)]";
 
@@ -34,18 +34,23 @@ export default function LoginForm({ onFinish, loading }) {
       className="w-full max-w-[440px]"
     >
       
-      <div className="rounded-2xl border border-white/60 bg-white/90 p-8 shadow-[0_25px_80px_rgba(0,0,0,0.12)] backdrop-blur-2xl sm:rounded-[32px] sm:p-12 lg:p-14">
+      <div className="rounded-2xl border border-white/60 bg-white/90 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.12)] backdrop-blur-2xl sm:rounded-[32px] sm:p-12 lg:p-14">
 
         {/* Logo */}
 
-        <div className="mb-6 flex justify-center sm:mb-8"
-        style={{ marginTop: 15, marginBottom:5 }}>
+        <div className="mb-3 flex justify-center sm:mb-8"
+        style={{ marginTop: 5, marginBottom:5 }}>
 
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 shadow-xl">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 shadow-xl sm:h-16 sm:w-16">
+
+            <ShoppingBag
+              size={22}
+              className="text-white sm:hidden"
+            />
 
             <ShoppingBag
               size={28}
-              className="text-white"
+              className="hidden text-white sm:block"
             />
 
           </div>
@@ -56,6 +61,7 @@ export default function LoginForm({ onFinish, loading }) {
 
         <Title
           level={2}
+          className="!text-xl sm:!text-2xl"
           style={{
             textAlign: "center",
             marginBottom: 6,
@@ -81,7 +87,7 @@ Securely sign in to manage your business.
           layout="vertical"
           onFinish={onFinish}
           size="large"
-          style={{ padding: 25 }}
+          className="!p-2 sm:!p-[25px]"
         >
           <Form.Item
             label="Email Address"
@@ -160,7 +166,7 @@ Securely sign in to manage your business.
             loading={loading}
             type="primary"
             block
-            className="!h-[52px] !rounded-xl !border-0 !bg-gradient-to-r !from-green-500 !to-emerald-600 !text-base !font-semibold !shadow-lg !shadow-green-200 hover:!from-green-600 hover:!to-emerald-700"
+            className="!h-[44px] sm:!h-[52px] !rounded-xl !border-0 !bg-gradient-to-r !from-green-500 !to-emerald-600 !text-base !font-semibold !shadow-lg !shadow-green-200 hover:!from-green-600 hover:!to-emerald-700"
           >
             <div className="flex items-center justify-center gap-2">
 

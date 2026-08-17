@@ -64,7 +64,7 @@ const Login = () => {
       {/* Animated Background */}
       <FloatingBackground />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] items-center justify-center gap-10 p-6 sm:p-10 lg:gap-16 lg:p-16 xl:gap-20 xl:p-20">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] items-center justify-center gap-10 px-10 py-10 sm:p-10 lg:gap-16 lg:p-16 xl:gap-20 xl:p-20">
 
         {/* Left Side */}
         <div className="hidden w-full max-w-[620px] items-center lg:flex">
