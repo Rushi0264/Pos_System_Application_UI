@@ -37,3 +37,27 @@ margin-bottom:5px;
 color:#0f766e;
 font-weight:600;
 }
+
+@media (max-width: 768px) {
+  .testimonials{
+    padding: 50px 20px;
+  }
+
+  .testimonials h2{
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .testimonial-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .testimonial-card{
+    padding: 22px;
+  }
+
+  .testimonial-card p{
+    font-size: 15px;
+  }
+}

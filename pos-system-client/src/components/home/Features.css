@@ -86,3 +86,35 @@ color:#666;
 line-height:1.7;
 
 }
+
+@media (max-width: 768px) {
+  .features{
+    padding: 50px 20px;
+  }
+
+  .features h2{
+    font-size: 28px;
+  }
+
+  .features > p{
+    font-size: 15px;
+    margin-bottom: 35px;
+  }
+
+  .feature-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feature-card{
+    padding: 25px;
+  }
+
+  .feature-icon{
+    font-size: 34px;
+  }
+
+  .feature-card h3{
+    font-size: 19px;
+  }
+}
