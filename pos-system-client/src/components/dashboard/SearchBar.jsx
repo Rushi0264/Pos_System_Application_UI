@@ -36,7 +36,7 @@ const data = [
   },
 ];
 
-const SearchBar = () => {
+const SearchBar = ({ isMobile }) => {
   const navigate = useNavigate();
   const [options, setOptions] = useState([]);
 
@@ -61,7 +61,7 @@ const SearchBar = () => {
 
   return (
     <AutoComplete
-      style={{ width: 320 }}
+      style={{ width: isMobile ? 130 : 320 }}
       options={options}
       onSearch={handleSearch}
       onSelect={(value, option) => navigate(option.path)}
@@ -69,7 +69,7 @@ const SearchBar = () => {
       <Input
         size="large"
         prefix={<SearchOutlined />}
-        placeholder="Search Products, Stores..."
+        placeholder={isMobile ? "Search..." : "Search Products, Stores..."}
       />
     </AutoComplete>
   );

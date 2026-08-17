@@ -32,7 +32,7 @@ import { logout } from "../../redux/authSlice";
 const { Sider } = Layout;
 
 
-const Sidebar = ({ collapsed }) => {
+const Sidebar = ({ collapsed , isMobile  }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -385,10 +385,12 @@ ROLE_SUPER_ADMIN: [
 
     <Sider
       width={260}
-      collapsedWidth={80}
+collapsedWidth={isMobile ? 0 : 80}
+  breakpoint="lg"
       collapsible
       collapsed={collapsed}
       trigger={null}
+
       style={{
         background:"#0f172a",
         boxShadow:"4px 0 18px rgba(0,0,0,.15)",
@@ -397,7 +399,7 @@ ROLE_SUPER_ADMIN: [
         top: 0,
         height: "100vh",
         overflow: "hidden",
-        zIndex: 100,
+        zIndex: isMobile ? 1001 : 100,
         display: "flex",
         flexDirection: "column",
       }}

@@ -12,11 +12,12 @@ const { Content } = Layout;
 
 const MainLayout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [storeStatus, setStoreStatus] = useState(null);
   const [statusMessage, setStatusMessage] = useState("");
   const [sending, setSending] = useState(false);
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const user = storage.getUser();
@@ -34,6 +35,17 @@ const MainLayout = ({ children }) => {
     }
   }, []);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 992;
+      setIsMobile(mobile);
+      setCollapsed(mobile);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const isRestricted = storeStatus === "BLOCKED" || storeStatus === "PENDING";
 
   const handleContactSupport = async () => {
@@ -49,12 +61,10 @@ const MainLayout = ({ children }) => {
         "Support request sent successfully. Please login again once your account is approved."
       );
 
-   
       setTimeout(() => {
-  sessionStorage.clear();     
-  navigate("/login");
-}, 1500);
-
+        sessionStorage.clear();
+        navigate("/login");
+      }, 1500);
     } catch (error) {
       message.error(
         error.response?.data?.message ||
@@ -68,16 +78,28 @@ const MainLayout = ({ children }) => {
 
   return (
     <Layout style={{ minHeight: "100vh", background: "#f5f7fb" }}>
-      <Sidebar collapsed={collapsed} />
+      <Sidebar collapsed={collapsed} isMobile={isMobile} />
+
+      {isMobile && !collapsed && (
+        <div
+          onClick={() => setCollapsed(true)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.45)",
+            zIndex: 1000,
+          }}
+        />
+      )}
 
       <Layout
         style={{
           background: "#f5f7fb",
-          marginLeft: collapsed ? 80 : 260,
+          marginLeft: isMobile ? 0 : collapsed ? 80 : 260,
           transition: "margin-left 0.2s",
         }}
       >
-        <Navbar collapsed={collapsed} setCollapsed={setCollapsed} />
+        <Navbar collapsed={collapsed} setCollapsed={setCollapsed} isMobile={isMobile} />
 
         <div style={{ position: "relative" }}>
           {isRestricted && (

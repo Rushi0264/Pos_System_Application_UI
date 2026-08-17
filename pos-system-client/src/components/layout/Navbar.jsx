@@ -11,17 +11,15 @@ import UserMenu from "./UserMenu";
 
 const { Header } = Layout;
 
-const Navbar = ({ collapsed, setCollapsed }) => {
+const Navbar = ({ collapsed, setCollapsed, isMobile }) => {
   const user = storage.getUser();
 
-  // Name
   const userName =
     user?.fullName ||
     `${user?.firstName || ""} ${user?.lastName || ""}`.trim() ||
     user?.name ||
     "User";
 
-  // Role
   const userRole = user?.role
     ? user.role
         .replace("ROLE_", "")
@@ -39,7 +37,7 @@ const Navbar = ({ collapsed, setCollapsed }) => {
       style={{
         background: "#ffffff",
         height: 70,
-        padding: "0 28px",
+        padding: isMobile ? "0 12px" : "0 28px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -47,10 +45,10 @@ const Navbar = ({ collapsed, setCollapsed }) => {
         position: "sticky",
         top: 0,
         zIndex: 999,
+        overflow: "hidden",
       }}
     >
-      {/* Left Side */}
-      <Space size={20}>
+      <Space size={isMobile ? 8 : 20} style={{ minWidth: 0, flex: 1 }}>
         <Button
           type="text"
           size="large"
@@ -62,16 +60,17 @@ const Navbar = ({ collapsed, setCollapsed }) => {
             )
           }
           onClick={() => setCollapsed(!collapsed)}
+          style={{ flexShrink: 0 }}
         />
 
-        <SearchBar />
+<div className="navbar-search-wrap" style={{ minWidth: 0 }}>
+  <SearchBar isMobile={isMobile} />
+</div>
       </Space>
 
-      {/* Right Side */}
-      <Space size={24}>
+      <Space size={isMobile ? 10 : 24} style={{ flexShrink: 0 }}>
         <NotificationMenu />
 
-        {/* Logged In User */}
         <div
           style={{
             display: "flex",
@@ -80,44 +79,45 @@ const Navbar = ({ collapsed, setCollapsed }) => {
           }}
         >
           <Avatar
-            size={42}
+            size={isMobile ? 36 : 42}
             style={{
               background: "#16a34a",
               fontWeight: 700,
+              flexShrink: 0,
             }}
           >
             {userName.charAt(0).toUpperCase()}
           </Avatar>
 
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              lineHeight: 1.2,
-            }}
-          >
-            <span
+          {!isMobile && (
+            <div
               style={{
-                fontWeight: 600,
-                color: "#1f2937",
-                fontSize: 15,
+                display: "flex",
+                flexDirection: "column",
+                lineHeight: 1.2,
               }}
             >
-              {userName}
-            </span>
+              <span
+                style={{
+                  fontWeight: 600,
+                  color: "#1f2937",
+                  fontSize: 15,
+                }}
+              >
+                {userName}
+              </span>
 
-            <span
-              style={{
-                fontSize: 12,
-                color: "#6b7280",
-              }}
-            >
-              {userRole}
-            </span>
-          </div>
+              <span
+                style={{
+                  fontSize: 12,
+                  color: "#6b7280",
+                }}
+              >
+                {userRole}
+              </span>
+            </div>
+          )}
         </div>
-
-        
       </Space>
     </Header>
   );

@@ -81,3 +81,18 @@ body {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-3px); }
 }
+
+html, body, #root {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.navbar-search-wrap {
+  overflow: hidden;
+}
+.navbar-search-wrap .ant-input,
+.navbar-search-wrap .ant-input-affix-wrapper,
+.navbar-search-wrap input {
+  width: 100% !important;
+  min-width: 0 !important;
+}
