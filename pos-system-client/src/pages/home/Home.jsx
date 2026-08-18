@@ -50,8 +50,8 @@ function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        {/* <div className="blob blob1"></div> */}
-        {/* <div className="blob blob2"></div> */}
+         <div className="blob blob1"></div>
+         <div className="blob blob2"></div> 
 
         <p className="tag">All-in-One Retail POS Platform</p>
 
