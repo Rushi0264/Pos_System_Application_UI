@@ -11,8 +11,7 @@ background:#f7f8fa;
 
 .home{
 min-height:100vh;
-overflow:hidden;
-background: linear-gradient(180deg, #d1fae5, #ffffff, #dbeafe);
+background: linear-gradient(135deg, #d1fae5 0%, #ecfdf5 35%, #eff6ff 65%, #dbeafe 100%);
 }
 
 /* Navbar */
@@ -95,14 +94,10 @@ gap:15px;
 /* Hero */
 
 .hero{
-
 position:relative;
-
-padding:150px 20px  40px;
-
+overflow:hidden;
+padding:150px 20px ;
 text-align:center;
-
-background: transparent;
 
 }
 
@@ -175,19 +170,11 @@ gap:20px;
 /* Cards */
 
 .stats{
-
 display:flex;
-
 justify-content:center;
-
 gap:30px;
-
 padding:80px;
-
 flex-wrap:wrap;
-
-background: transparent;
-
 }
 
 .card{
@@ -297,7 +284,7 @@ transform:translateY(0px);
 /* ========== TABLET & MOBILE ========== */
 @media (max-width: 768px) {
 
-    .navbar{
+  .navbar{
     width: 92%;
     top: 12px;
     padding: 10px 14px;
