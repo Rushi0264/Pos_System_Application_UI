@@ -190,28 +190,28 @@ const SuperAdminDashboard = () => {
   };
 
   //  Approve / Reject handler
-const handleModerateStore = async (storeId, status) => {
-  try {
-    const token = sessionStorage.getItem("pos_token");
+  const handleModerateStore = async (storeId, status) => {
+    try {
+      const token = sessionStorage.getItem("pos_token");
 
-    await axios.put(
-      `http://localhost:8080/api/stores/${storeId}/moderate?status=${status}`,
-      {},
-      { headers: { Authorization: `Bearer ${token}` } }
-    );
+      await axios.put(
+        `${import.meta.env.VITE_API_URL}/api/stores/${storeId}/moderate?status=${status}`,
+        {},
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
 
-    message.success(
-      status === "ACTIVE"
-        ? "Store approved. User notified via email."
-        : "Store blocked. User notified via email."
-    );
+      message.success(
+        status === "ACTIVE"
+          ? "Store approved. User notified via email."
+          : "Store blocked. User notified via email."
+      );
 
-    loadDashboard();
-  } catch (err) {
-    console.log(err);
-    message.error("Failed to update store status.");
-  }
-};
+      loadDashboard();
+    } catch (err) {
+      console.log(err);
+      message.error("Failed to update store status.");
+    }
+  };
 
   const totalStoresInPie = storeStatus.reduce((sum, s) => sum + (s.count || 0), 0);
 
