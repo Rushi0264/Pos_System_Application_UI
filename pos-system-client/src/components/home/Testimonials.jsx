@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import "./Testimonials.css";
 
 const testimonials = [
@@ -20,10 +21,13 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <section
-    className="testimonials"
-    data-aos="fade-up"
->
+    <motion.section
+      className="testimonials"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.7 }}
+    >
       <h2>What Our Clients Say</h2>
 
       <div className="testimonial-grid">
@@ -37,7 +41,7 @@ function Testimonials() {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 

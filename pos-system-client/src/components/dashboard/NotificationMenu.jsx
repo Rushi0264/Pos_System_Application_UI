@@ -99,7 +99,7 @@ const NotificationMenu = () => {
   const menu = (
     <div
       style={{
-        width: 360,
+        width: "min(360px, 68vw)",
         maxHeight: 420,
         overflowY: "auto",
         background: "#fff",

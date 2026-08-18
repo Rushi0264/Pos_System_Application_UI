@@ -21,7 +21,7 @@ import { Link } from "react-router-dom";
 const { Title, Text } = Typography;
 
 const inputClassName =
-  "!h-[44px] sm:!h-[52px] !rounded-xl !border !border-gray-200 !bg-gray-50 !px-4 " +
+  "!h-[44px] sm:!h-[52px] max-sm:!h-9 !rounded-xl !border !border-gray-200 !bg-gray-50 !px-4 " +
   "hover:!border-green-300 focus-within:!border-green-400 " +
   "focus-within:!bg-white focus-within:!shadow-[0_0_0_4px_rgba(34,197,94,0.12)]";
 
@@ -31,17 +31,17 @@ export default function LoginForm({ onFinish, loading }) {
       initial={{ opacity: 0, x: 60 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8 }}
-      className="w-full max-w-[440px]"
+      className="w-full max-w-[440px] max-sm:max-w-[300px]"
     >
       
-      <div className="rounded-2xl border border-white/60 bg-white/90 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.12)] backdrop-blur-2xl sm:rounded-[32px] sm:p-12 lg:p-14">
+      <div className="rounded-2xl border border-white/60 bg-white/90 p-6 shadow-[0_25px_80px_rgba(0,0,0,0.12)] backdrop-blur-2xl sm:rounded-[32px] sm:p-12 lg:p-14 max-sm:!p-4 max-sm:!rounded-2xl">
 
         {/* Logo */}
 
-        <div className="mb-3 flex justify-center sm:mb-8"
+        <div className="mb-3 flex justify-center sm:mb-8 max-sm:!mb-2"
         style={{ marginTop: 5, marginBottom:5 }}>
 
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 shadow-xl sm:h-16 sm:w-16">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 shadow-xl sm:h-16 sm:w-16 max-sm:!h-9 max-sm:!w-9">
 
             <ShoppingBag
               size={22}
@@ -61,7 +61,7 @@ export default function LoginForm({ onFinish, loading }) {
 
         <Title
           level={2}
-          className="!text-xl sm:!text-2xl"
+          className="!text-xl sm:!text-2xl max-sm:!text-base"
           style={{
             textAlign: "center",
             marginBottom: 6,
@@ -72,6 +72,7 @@ export default function LoginForm({ onFinish, loading }) {
 
         <Text
           type="secondary"
+          className="max-sm:!text-[11px]"
           style={{
             display: "block",
             textAlign: "center",
@@ -87,11 +88,12 @@ Securely sign in to manage your business.
           layout="vertical"
           onFinish={onFinish}
           size="large"
-          className="!p-2 sm:!p-[25px]"
+          className="!p-2 sm:!p-[25px] max-sm:!p-1"
         >
           <Form.Item
             label="Email Address"
             name="email"
+            className="max-sm:!mb-2"
             style={{ marginBottom: 5 }}
             rules={[
               {
@@ -120,6 +122,7 @@ Securely sign in to manage your business.
           <Form.Item
             label="Password"
             name="password"
+            className="max-sm:!mb-2"
             style={{ marginBottom: 15 }}
             rules={[
               {
@@ -143,7 +146,7 @@ Securely sign in to manage your business.
 
           {/* Remember */}
 
-          <div className="mb-8 flex flex-wrap items-center justify-between gap-3 text-sm"
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-3 text-sm max-sm:!gap-2 max-sm:!text-xs"
           style={{ marginBottom: 15 }}>
 
             <Checkbox>
@@ -152,7 +155,7 @@ Securely sign in to manage your business.
 
             <button
               type="button"
-              className="text-sm font-medium text-green-600 transition hover:text-green-700"
+              className="text-sm font-medium text-green-600 transition hover:text-green-700 max-sm:!text-xs"
             >
               Forgot Password?
             </button>
@@ -166,7 +169,7 @@ Securely sign in to manage your business.
             loading={loading}
             type="primary"
             block
-            className="!h-[44px] sm:!h-[52px] !rounded-xl !border-0 !bg-gradient-to-r !from-green-500 !to-emerald-600 !text-base !font-semibold !shadow-lg !shadow-green-200 hover:!from-green-600 hover:!to-emerald-700"
+            className="!h-[44px] sm:!h-[52px] !rounded-xl !border-0 !bg-gradient-to-r !from-green-500 !to-emerald-600 !text-base !font-semibold !shadow-lg !shadow-green-200 hover:!from-green-600 hover:!to-emerald-700 max-sm:!h-10 max-sm:!text-sm"
           >
             <div className="flex items-center justify-center gap-2">
 
@@ -185,7 +188,7 @@ Securely sign in to manage your business.
     marginTop: 20,
     textAlign: "center",
   }}
-  className="flex items-center justify-between text-sm"
+  className="flex flex-col gap-2 items-center justify-between text-sm sm:flex-row max-sm:!mt-4 max-sm:!gap-1 max-sm:!text-xs"
 >
   <Link
     to="/"
@@ -202,7 +205,7 @@ Securely sign in to manage your business.
   </span>
 </div>
 
-          <Divider style={{ margin: "20px 0" }} />
+          <Divider style={{ margin: "20px 0" }} className="max-sm:!my-2" />
 
           {/* Footer */}
 
@@ -215,6 +218,7 @@ Securely sign in to manage your business.
 
             <Text
               type="secondary"
+              className="max-sm:!text-[11px]"
               style={{ fontSize: 13 }}
             >
               Enterprise Grade Security

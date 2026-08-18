@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import {
   Table,
   Button,
@@ -19,6 +21,14 @@ export default function InventoryTable({
   onEdit,
   onDelete,
 }) {
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const currentUser = JSON.parse(sessionStorage.getItem("pos_user"));
   const isBranchManager = currentUser?.role === "ROLE_BRANCH_MANAGER";
@@ -153,20 +163,16 @@ export default function InventoryTable({
   return (
 
     <Table
-    style={{margin:10}}
-
+      style={{ margin: "clamp(-1px, -1vw, 20px)", marginTop: "20px" }}
+  size="middle"
       rowKey="id"
-
       columns={columns}
-
       dataSource={data}
-
       loading={loading}
-
+      scroll={{ x: 600 }}
       pagination={{
-        pageSize:10
+        pageSize: 10,
       }}
-
     />
 
   );

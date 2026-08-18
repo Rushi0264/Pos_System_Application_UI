@@ -56,6 +56,7 @@ const PurchaseTable = ({
       loading={loading}
       columns={columns}
       dataSource={purchases}
+      scroll={{ x: 600 }}
     />
   );
 };

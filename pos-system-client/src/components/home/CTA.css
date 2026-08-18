@@ -14,3 +14,18 @@ margin-bottom:20px;
 font-size:20px;
 margin-bottom:40px;
 }
+
+@media (max-width: 768px) {
+  .cta{
+    padding: 60px 20px;
+  }
+
+  .cta h2{
+    font-size: 30px;
+  }
+
+  .cta p{
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+}

@@ -65,7 +65,12 @@ export default function InventoryStats({ inventory = [] }) {
 
 
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4 p-3" style={{padding:10}} >
+    <div
+  className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4"
+  style={{
+    margin: "0 clamp(-8px, -2vw, 20px) clamp(16px, 4vw, 24px)",
+  }}
+>
 
       {stats.map((item, index) => {
 
@@ -100,7 +105,7 @@ export default function InventoryStats({ inventory = [] }) {
               borderRadius: 20,
               background: "#fff",
               boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
-              padding: 24,
+padding: "clamp(18px, 5vw, 24px)",
               position: "relative",
               overflow: "hidden",
               cursor: "default",
@@ -134,11 +139,11 @@ export default function InventoryStats({ inventory = [] }) {
 
               <div>
 
-                <p style={{ margin: 0, color: "#6b7280", fontSize: 15, fontWeight: 500 }}>
+                <p style={{ margin: 0, color: "#6b7280", fontSize: "clamp(13px, 3.5vw, 15px)", fontWeight: 500 }}>
                   {item.title}
                 </p>
 
-                <h2 style={{ margin: "12px 0 6px", fontSize: 30, fontWeight: 700, color: "#111827" }}>
+                <h2 style={{ margin: "12px 0 6px", fontSize: "clamp(24px, 6vw, 30px)", fontWeight: 700, color: "#111827" }}>
                   {item.value}
                 </h2>
 
@@ -146,8 +151,8 @@ export default function InventoryStats({ inventory = [] }) {
 
               <div
                 style={{
-                  width: 68,
-                  height: 68,
+                  width: "clamp(56px, 14vw, 68px)",
+height: "clamp(56px, 14vw, 68px)",
                   borderRadius: 18,
                   background: `linear-gradient(135deg, ${item.color}, ${item.color}cc)`,
                   display: "flex",

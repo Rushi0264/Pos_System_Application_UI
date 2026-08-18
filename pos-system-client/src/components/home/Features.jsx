@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   ShoppingCartOutlined,
   DatabaseOutlined,
@@ -44,11 +45,14 @@ const features = [
 
 function Features() {
   return (
-    <section
-    className="features"
-    id="features"
-    data-aos="fade-up"
->
+    <motion.section
+      className="features"
+      id="features"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.7 }}
+    >
       <h2>Everything You Need</h2>
 
       <p>
@@ -66,7 +70,7 @@ function Features() {
           </div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 

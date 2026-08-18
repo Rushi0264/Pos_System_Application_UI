@@ -66,7 +66,7 @@ const OrderDetails = () => {
 <MainLayout>
   <BackButton/>
   <Card title={`Order #${order.id}`}>
-    <Descriptions bordered column={2}>
+    <Descriptions bordered column={{ xs: 1, sm: 1, md: 2 }}>
 
       <Descriptions.Item label="Order ID">
         {order.id}
@@ -141,6 +141,7 @@ const OrderDetails = () => {
       pagination={false}
       columns={columns}
       dataSource={order.items || []}
+      scroll={{ x: 500 }}
     />
   </Card>
   </MainLayout>

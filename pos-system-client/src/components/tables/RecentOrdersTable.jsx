@@ -82,6 +82,7 @@ const RecentOrdersTable = () => {
       dataSource={data}
       pagination={false}
       size="middle"
+      scroll={{ x: 500 }} 
     />
   );
 };

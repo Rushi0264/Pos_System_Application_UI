@@ -95,6 +95,7 @@ const BranchInventory = () => {
           loading={loading}
           columns={columns}
           dataSource={inventory}
+          scroll={{ x: 500 }}
         />
       </Card>
     </MainLayout>

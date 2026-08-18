@@ -26,7 +26,7 @@ const EmployeeForm = ({
         onFinish={onSubmit}
       >
         <Row gutter={16}>
-          <Col span={12}>
+<Col xs={24} sm={12}>
             <Form.Item
               label="Full Name"
               name="fullName"
@@ -41,7 +41,7 @@ const EmployeeForm = ({
             </Form.Item>
           </Col>
 
-          <Col span={12}>
+          <Col xs={24} sm={12}>
             <Form.Item
               label="Email"
               name="email"
@@ -62,7 +62,7 @@ const EmployeeForm = ({
         </Row>
 
         <Row gutter={16}>
-          <Col span={12}>
+          <Col xs={24} sm={12}>
             <Form.Item
               label="Phone"
               name="phone"
@@ -77,7 +77,7 @@ const EmployeeForm = ({
             </Form.Item>
           </Col>
 
-          <Col span={12}>
+          <Col xs={24} sm={12}>
             <Form.Item
               label="Password"
               name="password"
@@ -88,7 +88,7 @@ const EmployeeForm = ({
         </Row>
 
         <Row gutter={16}>
-          <Col span={12}>
+          <Col xs={24} sm={12}>
             <Form.Item
               label="Role"
               name="role"
@@ -124,7 +124,7 @@ const EmployeeForm = ({
           </Col>
 
           {!isStoreAdmin && (
-            <Col span={12}>
+            <Col xs={24} sm={12}>
               <Form.Item
                 label="Store"
                 name="storeId"
@@ -162,7 +162,7 @@ const EmployeeForm = ({
         </Row>
 
         <Row gutter={16}>
-          <Col span={12}>
+          <Col xs={24} sm={12}>
             <Form.Item
               label="Branch"
               name="branchId"

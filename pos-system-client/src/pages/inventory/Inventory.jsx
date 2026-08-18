@@ -424,8 +424,13 @@ return (
 
   <MainLayout>
 
-<div className="space-y-6" style={{margin:15,padding:10}}>
-
+<div
+  className="space-y-6"
+  style={{
+    margin: "clamp(2px, 1vw, 15px)",
+    padding: "clamp(2px, 1vw, 10px)",
+  }}
+>
 
 <h1 className="text-3xl font-bold">
 Inventory Management

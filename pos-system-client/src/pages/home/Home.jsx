@@ -1,9 +1,6 @@
-import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import { motion } from "framer-motion";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 import "./Home.css";
 
@@ -16,13 +13,6 @@ import Footer from "../../components/home/Footer";
 
 function Home() {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
 
   return (
     <div className="home">
@@ -60,8 +50,8 @@ function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <div className="blob blob1"></div>
-        <div className="blob blob2"></div>
+        {/* <div className="blob blob1"></div> */}
+        {/* <div className="blob blob2"></div> */}
 
         <p className="tag">All-in-One Retail POS Platform</p>
 
@@ -91,9 +81,12 @@ function Home() {
       </motion.section>
 
       {/* Statistics */}
-      <section
+      <motion.section
         className="stats"
-        data-aos="fade-up"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7 }}
       >
         <div className="card">
           <h2>5000+</h2>
@@ -109,7 +102,7 @@ function Home() {
           <h2>99.9%</h2>
           <p>Uptime You Can Rely On</p>
         </div>
-      </section>
+      </motion.section>
 
       <Features />
 

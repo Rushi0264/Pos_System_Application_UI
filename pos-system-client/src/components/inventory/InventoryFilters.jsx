@@ -99,23 +99,23 @@ const loadDropdownData = async () => {
     }
   };
 
-  const selectStyle = {
-    width: 170,
-    borderRadius: 10,
-  };
+const selectStyle = {
+  width: "100%",
+  maxWidth: 170,
+  borderRadius: 10,
+};
 
   return (
     <div
-      style={{
-        borderRadius: 20,
-        background: "#fff",
-        border: "1px solid #eef0f4",
-        boxShadow: "0 6px 20px rgba(15, 23, 42, 0.05)",
-        padding: "20px 22px",
-        marginLeft: 10,
-        marginRight: 10,
-      }}
-    >
+  style={{
+    borderRadius: 20,
+    background: "#fff",
+    border: "1px solid #eef0f4",
+    boxShadow: "0 6px 20px rgba(15, 23, 42, 0.05)",
+    padding: "18px clamp(12px, 3vw, 22px)",
+    margin: "0 clamp(-8px, -2vw, 20px)",
+  }}
+>
       <div
         style={{
           display: "flex",
@@ -149,11 +149,12 @@ const loadDropdownData = async () => {
             allowClear
             placeholder="Search Product..."
             prefix={<Search size={16} color="#9ca3af" />}
-            style={{
-              width: 250,
-              borderRadius: 10,
-              height: 40,
-            }}
+              style={{
+    width: "100%",
+    maxWidth: 250,
+    borderRadius: 10,
+    height: 40,
+  }}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />

@@ -11,6 +11,8 @@ background:#f7f8fa;
 
 .home{
 min-height:100vh;
+overflow:hidden;
+background: linear-gradient(180deg, #d1fae5, #ffffff, #dbeafe);
 }
 
 /* Navbar */
@@ -96,19 +98,11 @@ gap:15px;
 
 position:relative;
 
-overflow:hidden;
-
-padding:150px 20px;
+padding:150px 20px  40px;
 
 text-align:center;
 
-background:
-
-linear-gradient(
-180deg,
-#f0fdfa,
-#ffffff
-);
+background: transparent;
 
 }
 
@@ -191,6 +185,8 @@ gap:30px;
 padding:80px;
 
 flex-wrap:wrap;
+
+background: transparent;
 
 }
 
@@ -301,14 +297,23 @@ transform:translateY(0px);
 /* ========== TABLET & MOBILE ========== */
 @media (max-width: 768px) {
 
-  .navbar{
-    width: 94%;
-    padding: 12px 20px;
-    flex-wrap: wrap;
+    .navbar{
+    width: 92%;
+    top: 12px;
+    padding: 10px 14px;
+    flex-wrap: nowrap;
+    border-radius: 16px;
+    gap: 8px;
   }
 
   .logo{
-    font-size: 20px;
+    font-size: 15px;
+    gap: 5px;
+    white-space: nowrap;
+  }
+
+  .logo span{
+    font-size: 18px;
   }
 
   .menu{
@@ -316,13 +321,21 @@ transform:translateY(0px);
   }
 
   .buttons{
-    gap: 8px;
+    gap: 6px;
+    flex-shrink: 0;
   }
 
   .buttons .ant-btn{
-    padding: 4px 10px;
-    font-size: 12px;
+    padding: 5px 10px;
+    font-size: 11px;
     height: auto;
+    border-radius: 8px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .buttons .ant-btn-primary{
+    box-shadow: 0 4px 10px rgba(16,185,129,.25);
   }
 
   .hero{

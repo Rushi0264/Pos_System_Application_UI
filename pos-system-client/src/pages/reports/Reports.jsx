@@ -99,7 +99,7 @@ const Reports = () => {
 
       <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
         {visibleCards.map((card) => (
-          <Col span={8} key={card.key}>
+          <Col xs={24} sm={12} lg={8} key={card.key}>
             <Card
               hoverable
               onClick={() => navigate(card.path)}

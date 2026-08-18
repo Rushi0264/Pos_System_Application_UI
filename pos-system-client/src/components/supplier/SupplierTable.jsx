@@ -64,6 +64,7 @@ const SupplierTable = ({
       loading={loading}
       columns={columns}
       dataSource={suppliers}
+      scroll={{ x: 700 }}
     />
   );
 };

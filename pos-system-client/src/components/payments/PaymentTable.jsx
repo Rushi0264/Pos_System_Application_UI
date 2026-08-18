@@ -60,6 +60,7 @@ const PaymentTable = ({
       loading={loading}
       columns={columns}
       dataSource={payments}
+      	scroll={{ x: 600 }}
     />
   );
 };
