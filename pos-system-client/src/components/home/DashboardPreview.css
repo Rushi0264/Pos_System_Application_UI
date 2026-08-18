@@ -98,3 +98,23 @@ justify-content:center;
 transform:scale(1.03);
 
 }
+
+@media (max-width: 768px) {
+  .dashboard-preview{
+    padding: 50px 20px;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .preview-content h2{
+    font-size: 28px;
+  }
+
+  .preview-content p{
+    font-size: 15px;
+  }
+
+  .preview-image img{
+    border-radius: 14px;
+  }
+}

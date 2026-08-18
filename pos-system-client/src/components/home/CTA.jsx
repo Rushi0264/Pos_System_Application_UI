@@ -1,13 +1,17 @@
+import { motion } from "framer-motion";
 import "./CTA.css";
 import { Button } from "antd";
 import { Link } from "react-router-dom";
 
 function CTA() {
   return (
-    <section
-    className="cta"
-    data-aos="zoom-in"
->
+    <motion.section
+      className="cta"
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6 }}
+    >
 
       <h2>Ready to Grow Your Business?</h2>
 
@@ -21,7 +25,7 @@ function CTA() {
         </Button>
       </Link>
 
-    </section>
+    </motion.section>
   );
 }
 

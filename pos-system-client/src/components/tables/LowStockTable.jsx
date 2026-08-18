@@ -74,6 +74,7 @@ const LowStockTable = () => {
       dataSource={data}
       pagination={false}
       size="middle"
+      scroll={{ x: 400 }}
     />
   );
 };

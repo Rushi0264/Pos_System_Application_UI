@@ -97,6 +97,7 @@ const TodayOrders = () => {
         rowKey="id"
         loading={loading}
         pagination={{ pageSize: 10 }}
+        scroll={{ x: 900 }}
       />
     </div>
     </MainLayout>

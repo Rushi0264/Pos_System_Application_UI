@@ -93,6 +93,7 @@ const OrderItemTable = ({
       columns={columns}
       dataSource={items}
       pagination={false}
+  scroll={{ x: 700 }}
     />
   );
 };

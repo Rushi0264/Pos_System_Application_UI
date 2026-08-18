@@ -67,6 +67,7 @@ const CategoryTable = ({
         showSizeChanger: true,
         showQuickJumper: true,
       }}
+      scroll={{ x: 500 }}
     />
   );
 };

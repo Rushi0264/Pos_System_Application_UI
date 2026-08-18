@@ -57,7 +57,7 @@ const PurchaseForm = ({
         onFinish={handleFinish}
       >
         <Row gutter={16}>
-          <Col span={6}>
+          <Col xs={24} sm={12} md={8}>
             <Form.Item
               label="Store"
               name="storeId"
@@ -79,7 +79,7 @@ const PurchaseForm = ({
             </Form.Item>
           </Col>
 
-          <Col span={6}>
+<Col xs={24} sm={12} md={8}>
             <Form.Item
               label="Supplier"
               name="supplierId"
@@ -97,7 +97,7 @@ const PurchaseForm = ({
 
           
 
-          <Col span={6}>
+          <Col xs={24} sm={12} md={8}> 
             <Form.Item
               label="Payment Type"
               name="paymentType"
@@ -113,7 +113,7 @@ const PurchaseForm = ({
         </Row>
 
         <Row gutter={16}>
-          <Col span={12}>
+          <Col xs={24} sm={12}> 
             <Form.Item
               label="Invoice Number"
               name="invoiceNumber"
@@ -122,7 +122,7 @@ const PurchaseForm = ({
             </Form.Item>
           </Col>
 
-          <Col span={12}>
+          <Col xs={24} sm={12}> 
             <Form.Item
               label="Remarks"
               name="remarks"
@@ -148,7 +148,7 @@ const PurchaseForm = ({
             <>
               {fields.map(({ key, name, ...restField }) => (
                 <Row gutter={16} key={key} align="middle">
-                  <Col span={8}>
+                 <Col xs={24} sm={12} md={8}> 
                     <Form.Item
                       {...restField}
                       label="Product"
@@ -165,7 +165,7 @@ const PurchaseForm = ({
                     </Form.Item>
                   </Col>
 
-                  <Col span={6}>
+                  <Col xs={12} sm={6} md={6}>
                     <Form.Item
                       {...restField}
                       label="Quantity"
@@ -176,7 +176,7 @@ const PurchaseForm = ({
                     </Form.Item>
                   </Col>
 
-                  <Col span={6}>
+                  <Col xs={12} sm={6} md={6}> 
                     <Form.Item
                       {...restField}
                       label="Purchase Price"
@@ -187,9 +187,9 @@ const PurchaseForm = ({
                     </Form.Item>
                   </Col>
 
-                  <Col span={4}>
-                    <MinusCircleOutlined onClick={() => remove(name)} />
-                  </Col>
+                  <Col xs={24} sm={24} md={4} style={{ textAlign: "center", marginBottom: 8 }}>
+  <MinusCircleOutlined onClick={() => remove(name)} style={{ fontSize: 18, color: "#ff4d4f" }} />
+</Col>
                 </Row>
               ))}
 

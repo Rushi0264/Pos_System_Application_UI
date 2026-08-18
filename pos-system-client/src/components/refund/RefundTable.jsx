@@ -102,6 +102,7 @@ const RefundTable = ({ refunds, loading, onView, onStatus }) => {
       loading={loading}
       columns={columns}
       dataSource={refunds}
+      	scroll={{ x: 800 }}
     />
   );
 };

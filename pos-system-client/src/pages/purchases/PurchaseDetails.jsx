@@ -56,7 +56,7 @@ const PurchaseDetails = () => {
     <MainLayout>
         <BackButton/>
       <Card title="Purchase Details" style={{ marginBottom: 20 }}>
-        <Descriptions bordered column={2}>
+        <Descriptions bordered column={{ xs: 1, sm: 1, md: 2 }}>
           <Descriptions.Item label="Invoice Number">
             {purchase.invoiceNumber}
           </Descriptions.Item>
@@ -97,6 +97,7 @@ const PurchaseDetails = () => {
           columns={itemColumns}
           dataSource={purchase.items}
           pagination={false}
+          scroll={{ x: 500 }}
         />
       </Card>
     </MainLayout>

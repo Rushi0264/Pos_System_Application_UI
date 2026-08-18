@@ -39,6 +39,7 @@ const ShiftReportTable = ({ reports, loading, onView }) => {
       loading={loading}
       columns={columns}
       dataSource={reports}
+      	scroll={{ x: 700 }}
     />
   );
 };

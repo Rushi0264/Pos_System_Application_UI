@@ -8,3 +8,17 @@ color:white;
 .footer h2{
 margin-bottom:15px;
 }
+
+@media (max-width: 768px) {
+  .footer{
+    padding: 25px 15px;
+  }
+
+  .footer h2{
+    font-size: 20px;
+  }
+
+  .footer p{
+    font-size: 13px;
+  }
+}

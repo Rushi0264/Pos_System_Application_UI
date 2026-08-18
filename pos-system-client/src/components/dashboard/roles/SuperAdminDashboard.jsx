@@ -241,7 +241,7 @@ const handleModerateStore = async (storeId, status) => {
       title: "Actions",
       key: "actions",
       render: (_, record) => (
-        <div style={{ display: "flex", gap: 8 }}>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           {record.status !== "ACTIVE" && (
             <Popconfirm
               title="Approve this store?"
@@ -541,6 +541,7 @@ const handleModerateStore = async (storeId, status) => {
                 dataSource={recentStores}
                 pagination={false}
                 rowClassName={() => "dashboard-row-hover"}
+                scroll={{ x: 600 }} 
               />
             </Card>
           </Col>

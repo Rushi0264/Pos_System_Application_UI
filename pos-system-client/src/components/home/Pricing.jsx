@@ -1,13 +1,17 @@
+import { motion } from "framer-motion";
 import "./Pricing.css";
 import { Button } from "antd";
 
 function Pricing() {
   return (
-    <section
-    className="pricing"
-    id="pricing"
-    data-aos="fade-up"
->
+    <motion.section
+      className="pricing"
+      id="pricing"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.7 }}
+    >
 
       <h2>Simple Pricing</h2>
 
@@ -57,7 +61,7 @@ function Pricing() {
 
       </div>
 
-    </section>
+    </motion.section>
   );
 }
 

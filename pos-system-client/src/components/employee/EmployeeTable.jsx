@@ -66,6 +66,7 @@ const EmployeeTable = ({
       loading={loading}
       columns={columns}
       dataSource={employees}
+      scroll={{ x: 600 }}
     />
   );
 };

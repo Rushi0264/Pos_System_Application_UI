@@ -96,3 +96,50 @@ html, body, #root {
   width: 100% !important;
   min-width: 0 !important;
 }
+
+/* ========== MOBILE: SMALLER CARDS EVERYWHERE ========== */
+@media (max-width: 768px) {
+
+  .ant-card {
+    border-radius: 14px !important;
+  }
+
+  .ant-card-body {
+    padding: 14px !important;
+  }
+
+  .ant-card-head {
+    padding: 0 14px !important;
+    min-height: 42px !important;
+  }
+
+  .ant-card-head-title {
+    font-size: 15px !important;
+    padding: 10px 0 !important;
+  }
+
+  /* Cards चा आतला content (numbers, headings) पण थोडा compact */
+  .ant-card h1 {
+    font-size: 20px !important;
+  }
+
+  .ant-card h2 {
+    font-size: 18px !important;
+  }
+
+  .ant-card h3 {
+    font-size: 14px !important;
+  }
+
+  .ant-card p {
+    font-size: 12px !important;
+  }
+
+  /* Avatar icons (StatCard/GlowStatCard मधले) थोडे लहान */
+  .ant-card .ant-avatar {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 18px !important;
+    line-height: 40px !important;
+  }
+}

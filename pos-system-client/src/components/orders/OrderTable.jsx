@@ -195,6 +195,7 @@ const OrderTable = ({
       pagination={{
         pageSize: 10,
       }}
+      scroll={{ x: 1000 }}
     />
   );
 };
