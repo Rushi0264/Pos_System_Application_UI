@@ -1,18 +1,18 @@
 import { Layout, Button, Avatar, Space } from "antd";
+import { useSelector } from "react-redux";
 import NotificationMenu from "../dashboard/NotificationMenu";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
 
-import { storage } from "../../utils/storage";
 import SearchBar from "../dashboard/SearchBar";
 import UserMenu from "./UserMenu";
 
 const { Header } = Layout;
 
 const Navbar = ({ collapsed, setCollapsed, isMobile }) => {
-  const user = storage.getUser();
+  const user = useSelector((state) => state.auth.user);
 
   const userName =
     user?.fullName ||
